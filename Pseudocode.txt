@@ -1,0 +1,36 @@
+STORE "Nama_Barang" AS STRING WITH ANY CHARACTER
+STORE "Kode_Barang" AS STRING WITH ANY CHARACTER
+STORE "Harga_Barang" AS INTEGER WITH ANY VALUE
+STORE "Jumlah_Barang" AS INTEGER WITH ANY VALUE
+STORE "Total" AS INTEGER WITH 0
+STORE "Kembalian" AS INTEGER WITH 0
+STORE "Uang" AS INTEGER WITH ANY VALUE
+Store "choice" As STRING WITH ANY CHARACTER
+
+STORE "choice" with "Input_Item" OR "calculate"
+PROCEDURE choice(Input_Item, calculate)
+WHILE "choice" IS "Input_Item" 
+    Move to "Input_Item"
+    READ AND WRITE "Nama_Barang" WITH STRING
+    READ AND WRITE "Kode_Barang" WITH 
+    READ AND WRITE "Harga_Barang" WITH INTEGER
+    READ AND WRITE "Jumlah_Barang" WITH INTEGER
+    IF "Input_Item" IS TRUE 
+        DISPLAY "Save change"
+    ELSE 
+        Back to "Input_Item"
+WHILE "choise" IS "calculate"
+    Move to "calculate"
+    READ AND WRITE "Harga_Barang" WITH INTEGER
+    READ AND WRITE "Jumlah_Barang" WITH INTEGER
+    STORE "Total" WITH "Harga_Barang" TIMES "Jumlah_Barang"
+    DISPLAY "Total"
+
+    READ AND WRITE "Uang" WITH INTEGER
+    STORE "Kembalian" WITH "Uang" MINUS "Total"
+    DISPLAY "Kembalian"
+END
+
+
+
+
